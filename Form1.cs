@@ -212,8 +212,6 @@ namespace Notepad_2022
         //Search function
         private void searcher()
         {
-            Form search = new Form2(textBox1.Text);
-            search.ShowDialog();
         }
     }
 }
