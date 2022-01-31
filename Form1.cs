@@ -106,8 +106,7 @@ namespace Notepad_2022
                 newToolStripMenuItem_Click(sender, e);
             else if (e.Control && e.KeyCode == Keys.M)
                 viewModeToolStripMenuItem_Click(sender, e);
-            else if (e.Control && e.KeyCode == Keys.F)
-                searcher();
+
         }
         //not needed
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -153,6 +152,10 @@ namespace Notepad_2022
                 this.BackColor = Color.Black;
                 this.ForeColor = Color.White;
                 label1.ForeColor = Color.White;
+                textBox2.ForeColor = Color.White;
+                textBox2.BackColor = Color.Gray;
+                button1.ForeColor = Color.White;
+                button1.BackColor = Color.Black;
                 darkmode = true;
             }
             else
@@ -165,6 +168,10 @@ namespace Notepad_2022
                 this.BackColor = Color.White;
                 this.ForeColor = Color.Black;
                 label1.ForeColor = Color.Black;
+                textBox2.ForeColor = Color.Black;
+                textBox2.BackColor = Color.White;
+                button1.BackColor= Color.White;
+                button1.ForeColor=Color.Black;
                 darkmode = false;
             }
         }
@@ -209,9 +216,20 @@ namespace Notepad_2022
                 textBox1.Font = fontchanger.Font;
             }
         }
-        //Search function
-        private void searcher()
+
+        private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int index = textBox1.Text.IndexOf(textBox2.Text);
+
+                textBox1.Focus();
+                textBox1.Select(index, textBox2.Text.Length);
+            }
+            catch
+            {
+                MessageBox.Show("Not found");
+            }
         }
     }
 }
