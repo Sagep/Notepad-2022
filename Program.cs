@@ -16,7 +16,12 @@ namespace Notepad_2022
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Form2 loginform = new Form2();
+            Application.Run(loginform);
+            if(loginform.UserSuccessfullyAuthenticated)
+            {
+                Application.Run(new Form1());
+            }
         }
     }
 }
